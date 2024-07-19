@@ -1,17 +1,30 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
-
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        Hero[] heroes = createHeroes();
+        System.out.println("Heroes info:");
+        for (Hero hero : heroes) {
+            System.out.println(" Health " + hero.getHealth() +
+                    " | Damage " + hero.getDamage() +
+                    " | SuperPower " + hero.getSuperPower());
         }
+
+        Boss boss = new Boss();
+        boss.setHealth(300);
+        boss.setDamage(50);
+        boss.setProtection("Block");
+        System.out.println("Boss info:");
+        System.out.println(" Health: " + boss.getHealth() +
+                " | Damage: " + boss.getDamage() +
+                " | Protect: " + boss.getProtection());
+    }
+
+    public static Hero[] createHeroes() {
+        Hero Islam = new Hero(70, 100, "Chidori");
+        Hero Zypar = new Hero(55, 70);
+        Hero Nurdan = new Hero(125, 110, "Rasengan");
+
+        Hero[] heroes = {Islam, Zypar, Nurdan};
+        return heroes;
     }
 }
